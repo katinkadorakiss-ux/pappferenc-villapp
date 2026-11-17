@@ -251,12 +251,9 @@
 <div class="container">
 
   <div class="card">
-    <div class="badge">PRO V5 • Mobilbarát • Papp Ferenc  • Villanyszerelés</div>
+    <div class="badge">PRO V6 • Mobilbarát • Papp Ferenc  • Villanyszerelés</div>
     <h1>Villanyszerelő Árajánlat PRO V5</h1>
-    <p class="note">
-      Nettó árakkal dolgozik. Alap ÁFA: <strong>27%</strong>.  
-      Nm² logika: <strong>13.000 Ft / nm² / kiállás</strong>, alapból <strong>1 kiállás / nm²</strong>.
-    </p>
+    <p class="note"></p>
 
     <div class="btn-row no-print">
       <button class="btn-primary" onclick="window.print()">🖨️ Nyomtatás / PDF mentés</button>
@@ -285,7 +282,7 @@
       </div>
       <div class="field">
         <label>ÁFA kulcs (%)</label>
-        <input type="number" id="vatRate" min="0" step="1" value="27" oninput="recalcAll()">
+        <input type="number" id="vatRate" min="0" step="1" value="0" oninput="recalcAll()">
       </div>
     </div>
   </div>
@@ -335,7 +332,7 @@
       <div class="field">
         <label>Adószám</label>
         <input type="text" id="clientTax" placeholder="Adószám (ha van)">
-       <div class="field">
+      <div class="field">
         <label>Cím</label>
         <input type="text" id="clientAddress" placeholder="Ügyfél címe">
       </div>
@@ -425,7 +422,11 @@
 
   <div class="card">
     <h2>4. Tervezés, felmérés, előkészítés </h2>
-    <p class="note"> Alap elemek. </p>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addPriceListRow()">➕ Új tétel</button>
+    </div>
 
     <div class="table-wrap">
       <table id="fixturesTable">
@@ -478,7 +479,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addPriceListRow()">➕ Új árlistás sor</button>
+      <button class="btn-primary" onclick="addPriceListRow()">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -556,7 +557,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új egyedi tétel</button>
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -610,7 +611,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új egyedi tétel</button>
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -704,7 +705,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új egyedi tétel</button>
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -865,8 +866,846 @@
     </div>
   </div>
 
+      <h2>9. Világítástechnika</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Mennyezeti lámpa"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="6000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" value="Fali lámpa"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="4000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" value="Spot lámpa"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="3000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><input type="text" value="LED lámpa"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="3000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>5</td>
+            <td><input type="text" value="LED szalag"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="fm"></td>
+            <td><input type="number" class="price" min="0" step="1" value="3000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>6</td>
+            <td><input type="text" value="LED tápegység"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="5000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>7</td>
+            <td><input type="text" value="Mozgásérzékelő"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="5000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+      <h2>10. Elosztótábla és kapcsolószekrény</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Süllyesztett elosztótábla"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="4500" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" value="Falon kívüli elosztótábla"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="3500" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" value="Elosztótábla csere"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="3500" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><input type="text" value="Elosztótábla bővítés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="2500" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>5</td>
+            <td><input type="text" value="Kismegszakító"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="3000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>6</td>
+            <td><input type="text" value="FI-relé"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="12000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>7</td>
+            <td><input type="text" value="Túlfeszültségvédő"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="10000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>8</td>
+            <td><input type="text" value="Főkapcsoló"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="10000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>9</td>
+            <td><input type="text" value="Fázisfigyelő-relé"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="12000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>10</td>
+            <td><input type="text" value="Sorkapcsoló"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="10000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><input type="text" value="Fésűs sín"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="10000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td><input type="text" value="Elosztótábla teljes kiépítés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="35000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><input type="text" value="Elosztótábla részleges átalakítás és bővítés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="25000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+   <h2>11. Kiállások és külön áramkörök</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Bel- és kültéri dugaszolóaljzat kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" value="Bel- és kültéri kapcsoló kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" value="Lámpa kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><input type="text" value="Sütő kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>5</td>
+            <td><input type="text" value="Főzőlap kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>6</td>
+            <td><input type="text" value="Mosógép kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>7</td>
+            <td><input type="text" value="Mosogatógép kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>8</td>
+            <td><input type="text" value="Szárítógép kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>9</td>
+            <td><input type="text" value="Bojler kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>10</td>
+            <td><input type="text" value="Klíma kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><input type="text" value="Hőszivattyú kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td><input type="text" value="Kaputelefon kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><input type="text" value="Kamera kiállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+      <h2>12. Nagyfogyasztók és gépbekötés</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Sütő bekötés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="20000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" value="Főzőlap bekötés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="20000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" value="Tűzhely bekötés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="20000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><input type="text" value="Bojler bekötés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="20000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>5</td>
+            <td><input type="text" value="Klíma bekötés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="20000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>6</td>
+            <td><input type="text" value="Hűszivattyű bekötés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="25000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>7</td>
+            <td><input type="text" value="Elszívó bekötés"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="20000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+      <h2>13. Hibakeresés és hibaelhárítás</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Zárlat"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="óra"></td>
+            <td><input type="number" class="price" min="0" step="1" value="12000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" value="Vezetékszakadás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="óra"></td>
+            <td><input type="number" class="price" min="0" step="1" value="12000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" value="Dugaszolóaljzat csere"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="5000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><input type="text" value="Kapcsoló csere"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="5000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>5</td>
+            <td><input type="text" value="Lámpa csere"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="7000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>6</td>
+            <td><input type="text" value="Elosztótábla javítás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="20000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+      <h2>14. Automatizálás</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Redőny"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="15000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" value="Okosotthon"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" value="Elektromos autó töltő"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="40000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+   <h2>15. Ipari háromfázisú villamos hálózat</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Ipari dugalj"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="20000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+   <h2>16. Anyagok</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Wago"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" value="Sorkapocs"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" value="Kötődoboz"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Szerelvénydoboz"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Bilincs"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Kötegelő"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Tipli"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Csavar"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Kábelcsatorna"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Egyéb"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Kábel"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+  <h2>17. Egyéb szolgáltatások</h2>
+    <p class="note"></p>
+
+    <div class="btn-row no-print">
+      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="customTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>Megnevezés</th>
+            <th style="width:120px">Mennyiség</th>
+            <th style="width:110px">Mértékegység</th>
+            <th style="width:160px">Nettó egységár (Ft)</th>
+            <th style="width:170px">Nettó összesen</th>
+          </tr>
+        </thead>
+        <tbody id="customBody">
+          <tr>
+            <td>1</td>
+            <td><input type="text" value="Kiszállás- Székesfehérvár"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="alkalom"></td>
+            <td><input type="number" class="price" min="0" step="1" value="5000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><input type="text" value="Távolabbi kiszállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="km"></td>
+            <td><input type="number" class="price" min="0" step="1" value="250" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><input type="text" value="Sürgősségi kiszállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="alkalom"></td>
+            <td><input type="number" class="price" min="0" step="1" value="15000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Munkaidőn kívüli kiszállás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="alkalom"></td>
+            <td><input type="number" class="price" min="0" step="1" value="25000" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Hulladék elszállítás"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Kötegelő"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Tipli"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Csavar"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Kábelcsatorna"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Egyéb"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+           <tr>
+            <td>3</td>
+            <td><input type="text" value="Kábel"></td>
+            <td><input type="number" class="qty" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td><input type="text" value="db"></td>
+            <td><input type="number" class="price" min="0" step="1" value="0" oninput="recalcAll()"></td>
+            <td class="rowTotal num">0 Ft</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="field" style="margin-top:12px;">
+      <label>Megjegyzések</label>
+      <textarea id="notes"></textarea>
+    </div>
+  </div>
+
+
   <div class="card">
-    <h2>7. Munka leírása / feltételek</h2>
+    <h2>18. Munka leírása / feltételek</h2>
     <div class="field">
       <label>Munka leírása</label>
       <textarea id="jobDescription" placeholder="pl. Lakásfelújítás, tábla csere stb..."></textarea>
@@ -874,7 +1713,7 @@
 
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések / ajánlati feltételek</label>
-      <textarea id="notes"> A számla végösszege 27%-os áfát tartalmaz. 
+      <textarea id="notes"> A számla végösszege 0%-os áfát tartalmaz. 
         A feltüntetett árak tájékoztató jellegűek, pontos árajánlat a helyszíni felmérés/egyeztetést követően kerül meghatározásra.
         Az alapszerelés díja nem tartalmazza a szerelvényezés költségét.
         A végső ár az elvégzendő munka mennyisége, a beépített anyagok és a helyszíni adottságok alapján változhat.
@@ -883,7 +1722,7 @@
   </div>
 
   <div class="card">
-    <h2>8. Összesítés</h2>
+    <h2>19. Összesítés</h2>
 
     <div class="summary">
       <div class="summary-box">
@@ -931,7 +1770,7 @@
   </div>
 
   <div class="card">
-    <h2>9. Munkalap blokk</h2>
+    <h2>20. Munkalap blokk</h2>
     <p class="note">Helyszíni munkalapként is használhatod.</p>
 
     <div class="grid-3">
@@ -972,7 +1811,7 @@
     const year = d.getFullYear();
     const month = String(d.getMonth()+1).padStart(2,'0');
     const day = String(d.getDate()).padStart(2,'0');
-    return `AJ-${year}${month}${day}-001`;
+    return `PF-${year}${month}${day}-001`;
   }
 
   function generateWorkNo(){
@@ -1075,11 +1914,11 @@
   }
 
   function addPriceListRow(){
-    addRowToTable('priceListBody', 'Új árlistás tétel', 0, 'db', 0);
+    addRowToTable('priceListBody', 'Új tétel', 0, 'db', 0);
   }
 
   function addCustomRow(){
-    addRowToTable('customBody', 'Új egyedi tétel', 0, 'db', 0);
+    addRowToTable('customBody', 'Új tétel', 0, 'db', 0);
   }
 
   function fillExampleSmall(){
