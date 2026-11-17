@@ -573,7 +573,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody6">
           <tr>
             <td>1</td>
             <td><input type="text" value="Horonymarás"></td>
@@ -627,7 +627,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody7">
           <tr>
             <td>1</td>
             <td><input type="text" value="Kábelcsatorna kiépítés"></td>
@@ -721,7 +721,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody8">
           <tr>
             <td>1</td>
             <td><input type="text" value="1-es dugaszoló aljzat"></td>
@@ -887,7 +887,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody9">
           <tr>
             <td>1</td>
             <td><input type="text" value="Mennyezeti lámpa"></td>
@@ -974,7 +974,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody10">
           <tr>
             <td>1</td>
             <td><input type="text" value="Süllyesztett elosztótábla"></td>
@@ -1108,7 +1108,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody11">
           <tr>
             <td>1</td>
             <td><input type="text" value="Bel- és kültéri dugaszolóaljzat kiállás"></td>
@@ -1242,7 +1242,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody12">
           <tr>
             <td>1</td>
             <td><input type="text" value="Sütő bekötés"></td>
@@ -1328,7 +1328,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody13">
           <tr>
             <td>1</td>
             <td><input type="text" value="Zárlat"></td>
@@ -1406,7 +1406,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody14">
           <tr>
             <td>1</td>
             <td><input type="text" value="Redőny"></td>
@@ -1460,7 +1460,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody15">
           <tr>
             <td>1</td>
             <td><input type="text" value="Ipari dugalj"></td>
@@ -1498,7 +1498,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody16">
           <tr>
             <td>1</td>
             <td><input type="text" value="Wago"></td>
@@ -1616,7 +1616,7 @@
             <th style="width:170px">Nettó összesen</th>
           </tr>
         </thead>
-        <tbody id="customBody">
+        <tbody id="customBody17">
           <tr>
             <td>1</td>
             <td><input type="text" value="Kiszállás- Székesfehérvár"></td>
@@ -1840,18 +1840,22 @@
   }
 
   function recalcTable(bodyId){
-    const rows = document.querySelectorAll(`#${bodyId} tr`);
+    const tbodies = document.querySelectorAll(`tbody[id="${bodyId}"]`);
     let total = 0;
 
-    rows.forEach((row, index) => {
-      row.cells[0].textContent = index + 1;
-      const qty = parseFloat(row.querySelector('.qty')?.value || 0);
-      const price = parseFloat(row.querySelector('.price')?.value || 0);
-      const rowTotal = qty * price;
-      total += rowTotal;
+    tbodies.forEach((tbody) => {
+      const rows = tbody.querySelectorAll('tr');
+
+      rows.forEach((row, index) => {
+        row.cells[0].textContent = index + 1;
+
+        const qty = parseFloat(row.querySelector('.qty')?.value || 0);
+        const price = parseFloat(row.querySelector('.price')?.value || 0);
+        const rowTotal = qty * price;
+        total += rowTotal;
       row.querySelector('.rowTotal').textContent = formatFt(rowTotal);
     });
-
+  });
     return total;
   }
 
@@ -1928,8 +1932,8 @@
     addRowToTable('priceListBody', 'Új tétel', 0, 'db', 0);
   }
 
-  function addCustomRow(){
-    addRowToTable('customBody', 'Új tétel', 0, 'db', 0);
+  function addCustomRow(bodyId){
+    addRowToTable(bodyId, 'Új tétel', 0, 'db', 0);
   }
 
   function fillExampleSmall(){
