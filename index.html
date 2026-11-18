@@ -251,8 +251,8 @@
 <div class="container">
 
   <div class="card">
-    <div class="badge">PRO V6 • Mobilbarát • Papp Ferenc  • Villanyszerelés</div>
-    <h1>Villanyszerelő Árajánlat PRO V5</h1>
+    <div class="badge">PRO V7.0 • Mobilbarát • Papp Ferenc  • Villanyszerelés</div>
+    <h1>Villanyszerelő Árajánlat PRO V7.0</h1>
     <p class="note"></p>
 
     <div class="btn-row no-print">
@@ -426,7 +426,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addPriceListRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addRowToTable('fixturesBody', 'Új tétel', 0, 'db', 0)">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -558,7 +558,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody6')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -612,7 +612,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody7')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -706,7 +706,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody8')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -872,7 +872,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody9')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -959,7 +959,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody10')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -1093,7 +1093,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody11')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -1227,7 +1227,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody12')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -1313,7 +1313,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody13')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -1391,7 +1391,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody14')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -1445,7 +1445,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody15')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -1483,7 +1483,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody16')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -1601,7 +1601,7 @@
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="addCustomRow()">➕ Új tétel</button>
+      <button class="btn-primary" onclick="addCustomRow('customBody17')">➕ Új tétel</button>
     </div>
 
     <div class="table-wrap">
@@ -1840,22 +1840,27 @@
   }
 
   function recalcTable(bodyId){
-    const tbodies = document.querySelectorAll(`tbody[id="${bodyId}"]`);
+    const tbody = document.getElementById(bodyId);
+    if (!tbody) {
+      console.error(`Nem található ilyen táblázat: ${bodyId}`);
+      return 0;
+    }
+
     let total = 0;
+    const rows = tbody.querySelectorAll('tr');
 
-    tbodies.forEach((tbody) => {
-      const rows = tbody.querySelectorAll('tr');
+    rows.forEach((row, index) => {
+      row.cells[0].textContent = index + 1;
 
-      rows.forEach((row, index) => {
-        row.cells[0].textContent = index + 1;
+      const qty = parseFloat(row.querySelector('.qty')?.value || 0);
+      const price = parseFloat(row.querySelector('.price')?.value || 0);
+      const rowTotal = qty * price;
+      total += rowTotal;
 
-        const qty = parseFloat(row.querySelector('.qty')?.value || 0);
-        const price = parseFloat(row.querySelector('.price')?.value || 0);
-        const rowTotal = qty * price;
-        total += rowTotal;
-      row.querySelector('.rowTotal').textContent = formatFt(rowTotal);
+      const totalCell = row.querySelector('.rowTotal');
+      if (totalCell) totalCell.textContent = formatFt(rowTotal);
     });
-  });
+
     return total;
   }
 
@@ -1887,7 +1892,8 @@
     const baseNet = getBaseNet();
     const fixturesNet = recalcTable('fixturesBody');
     const priceListNet = recalcTable('priceListBody');
-    const customNet = recalcTable('customBody');
+    const customBodyIds = ['customBody6','customBody7','customBody8','customBody9','customBody10','customBody11','customBody12','customBody13','customBody14','customBody15','customBody16','customBody17'];
+    const customNet = customBodyIds.reduce((sum, id) => sum + recalcTable(id), 0);
 
     const subtotal = baseNet + fixturesNet + priceListNet + customNet;
     const vatRate = parseFloat(document.getElementById('vatRate').value || 0);
@@ -1913,6 +1919,10 @@
 
   function addRowToTable(bodyId, name='', qty=0, unit='db', price=0){
     const tbody = document.getElementById(bodyId);
+    if (!tbody) {
+      console.error(`Nem található ilyen táblázat: ${bodyId}`);
+      return;
+    }
     const rowCount = tbody.querySelectorAll('tr').length + 1;
 
     const tr = document.createElement('tr');
@@ -1992,7 +2002,7 @@
   function getSimpleFields(){
     const data = {};
     document.querySelectorAll('input, select, textarea').forEach((el, i) => {
-      if (el.closest('#fixturesBody') || el.closest('#priceListBody') || el.closest('#customBody')) return;
+      if (el.closest('tbody')) return;
       const key = el.id || `anon_${i}`;
       data[key] = el.value;
     });
@@ -2015,6 +2025,10 @@
 
   function setTableData(bodyId, rows){
     const tbody = document.getElementById(bodyId);
+    if (!tbody) {
+      console.error(`Nem található ilyen táblázat: ${bodyId}`);
+      return;
+    }
     tbody.innerHTML = '';
     if(Array.isArray(rows) && rows.length){
       rows.forEach(r => addRowToTable(bodyId, r.name, r.qty, r.unit, r.price));
@@ -2026,7 +2040,10 @@
       fields: getSimpleFields(),
       fixtures: getTableData('fixturesBody'),
       priceList: getTableData('priceListBody'),
-      custom: getTableData('customBody')
+      customSections: Object.fromEntries(
+        ['customBody6','customBody7','customBody8','customBody9','customBody10','customBody11','customBody12','customBody13','customBody14','customBody15','customBody16','customBody17']
+          .map(id => [id, getTableData(id)])
+      )
     };
     localStorage.setItem('villanyszerelo_pro_v4', JSON.stringify(data));
     alert('Mentve a telefon / böngésző helyi tárhelyére ✅');
@@ -2050,7 +2067,12 @@
 
     if(data.fixtures) setTableData('fixturesBody', data.fixtures);
     if(data.priceList) setTableData('priceListBody', data.priceList);
-    if(data.custom) setTableData('customBody', data.custom);
+    if (data.customSections) {
+      Object.entries(data.customSections).forEach(([id, rows]) => setTableData(id, rows));
+    } else if (data.custom) {
+      // Régi mentésből származó összevont tételek megőrzése.
+      setTableData('customBody6', data.custom);
+    }
 
     toggleMode();
     recalcAll();
