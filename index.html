@@ -245,21 +245,65 @@
         background:#f2f2f2;
       }
     }
+  
+    #printDocument{display:none}
+    @media print{
+      @page{size:A4;margin:13mm 12mm}
+      body{background:#fff!important;color:#202124!important;font-family:Arial,sans-serif;line-height:1.35}
+      body > .container{display:none!important}
+      #printDocument{display:block!important}
+      #printDocument .container{max-width:none;margin:0;padding:0}
+      #printDocument .print-header{border-bottom:3px solid #f57c00;padding:0 0 12px;margin:0 0 16px}
+      #printDocument .print-header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+      #printDocument .print-brand{font-size:19px;font-weight:700;color:#202124}
+      #printDocument .print-subtitle{font-size:11px;color:#666;margin-top:3px}
+      #printDocument .print-mark{background:#f57c00;color:#fff;font-size:18px;font-weight:700;padding:8px 11px;border-radius:5px}
+      #printDocument .print-company-meta{font-size:10px;color:#555;margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 14px}
+      #printDocument .print-document-title{font-size:21px;font-weight:700;letter-spacing:.4px;margin:14px 0 2px;color:#202124}
+      #printDocument .print-document-subtitle{font-size:10px;color:#666}
+      #printDocument .card{background:#fff!important;color:#202124!important;border:0!important;border-bottom:1px solid #ddd!important;border-radius:0!important;box-shadow:none!important;padding:10px 0!important;margin:0 0 8px!important;break-inside:auto}
+      #printDocument h1{font-size:16px;border:0;padding:0;color:#202124}
+      #printDocument h2{font-size:13px;color:#202124;border-bottom:2px solid #f57c00;padding:0 0 5px;margin:0 0 8px;break-after:avoid}
+      #printDocument h3{font-size:11px;color:#202124}
+      #printDocument .badge,#printDocument .pill{background:#f4f4f4!important;color:#444!important;border:1px solid #ddd!important}
+      #printDocument .note,#printDocument .small-note{color:#555!important}
+      #printDocument .field{margin-bottom:7px;min-width:0}
+      #printDocument label{font-size:9px;color:#666!important;margin-bottom:2px}
+      #printDocument .print-value{display:block;min-height:14px;font-size:10px;color:#202124;white-space:pre-wrap;overflow-wrap:anywhere;padding:2px 0}
+      #printDocument textarea.print-value{min-height:0}
+      #printDocument .grid,#printDocument .grid-3,#printDocument .grid-4{gap:7px 12px}
+      #printDocument .summary{grid-template-columns:1fr 1fr;gap:10px}
+      #printDocument .summary-box{background:#fafafa!important;border:1px solid #ddd!important;border-radius:5px;padding:8px}
+      #printDocument .summary-line{border-bottom:1px solid #e5e5e5;padding:4px 0;font-size:10px}
+      #printDocument .summary-line:last-child{font-size:13px;color:#111}
+      #printDocument .table-wrap{overflow:visible}
+      #printDocument table{width:100%;min-width:0!important;border-collapse:collapse;table-layout:auto;font-size:9px}
+      #printDocument th,#printDocument td{border:1px solid #d5d5d5!important;color:#202124!important;padding:5px 6px;vertical-align:top}
+      #printDocument th{background:#f1f1f1!important;font-size:9px}
+      #printDocument td .print-value{font-size:9px;padding:0;min-height:0}
+      #printDocument tr{break-inside:avoid;page-break-inside:avoid}
+      #printDocument .hidden{display:none!important}
+      #printDocument .print-signatures{display:grid;grid-template-columns:1fr 1fr;gap:35px;margin:24px 0 8px;break-inside:avoid}
+      #printDocument .print-signature-line{border-top:1px solid #555;padding-top:5px;font-size:9px;color:#555;text-align:center}
+      #printDocument .no-print,#printDocument .btn-row,#printDocument button{display:none!important}
+      #printDocument .card:last-child{border-bottom:0!important}
+    }
+
   </style>
 </head>
 <body>
 <div class="container">
 
   <div class="card">
-    <div class="badge">Felmérő ív • Mobilbarát • Papp Ferenc  • Villany</div>
-    <h1>Villanyszerelő Árajánlat PRO V8.1</h1>
+    <div class="badge">Papp Ferenc  • Villanyszerelés</div>
+    <h1>PF Árajánlat PRO V8.3.6</h1>
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="window.print()">🖨️ Nyomtatás / PDF mentés</button>
+      <button class="btn-primary" onclick="printDocument()">🖨️ PDF mentés/nyomtatás</button>
       <button class="btn-dark" onclick="fillExampleSmall()">⚡ Kis munka minta</button>
       <button class="btn-dark" onclick="fillExampleFlat()">🏠 50 nm² lakás minta</button>
-      <button class="btn-success" onclick="saveLocal()">💾 Mentés telefonon</button>
+      <button class="btn-success" onclick="saveLocal()">💾 Mentés eszközre</button>
       <button class="btn-light" onclick="loadLocal()">📂 Visszatöltés</button>
       <button class="btn-danger" onclick="clearForm()">🧹 Törlés</button>
     </div>
@@ -1953,16 +1997,16 @@
     document.getElementById('kiallasCount').value = 4;
     document.getElementById('kiallasPrice').value = 22000;
 
-    // szerelvényezés
+    
     const fixtureRows = document.querySelectorAll('#fixturesBody tr');
-    if(fixtureRows[0]) fixtureRows[0].querySelector('.qty').value = 1; // kapcsoló
-    if(fixtureRows[1]) fixtureRows[1].querySelector('.qty').value = 2; // konnektor
-    if(fixtureRows[2]) fixtureRows[2].querySelector('.qty').value = 1; // lámpa
+    if(fixtureRows[0]) fixtureRows[0].querySelector('.qty').value = 1; 
+    if(fixtureRows[1]) fixtureRows[1].querySelector('.qty').value = 2; 
+    if(fixtureRows[2]) fixtureRows[2].querySelector('.qty').value = 1; 
 
-    // árlista: hibakeresés + kiszállás
+    
     const priceRows = document.querySelectorAll('#priceListBody tr');
-    if(priceRows[17]) priceRows[17].querySelector('.qty').value = 1; // hibakeresés első óra
-    if(priceRows[19]) priceRows[19].querySelector('.qty').value = 1; // kiszállás
+    if(priceRows[17]) priceRows[17].querySelector('.qty').value = 1; 
+    if(priceRows[19]) priceRows[19].querySelector('.qty').value = 1; 
 
     document.getElementById('jobDescription').value = 'Kisebb hibajavítás, 2 db konnektor csere, 1 db kapcsoló, 1 db lámpa bekötés.';
     document.getElementById('reportedIssue').value = 'Dugaljak hibás működése, kapcsoló csere.';
@@ -1979,18 +2023,18 @@
     document.getElementById('kiallasPerNm2').value = 1;
     document.getElementById('nm2UnitPrice').value = 13000;
 
-    // szerelvényezés
+    
     const fixtureRows = document.querySelectorAll('#fixturesBody tr');
-    if(fixtureRows[0]) fixtureRows[0].querySelector('.qty').value = 8;  // kapcsoló
-    if(fixtureRows[1]) fixtureRows[1].querySelector('.qty').value = 18; // konnektor
-    if(fixtureRows[2]) fixtureRows[2].querySelector('.qty').value = 8;  // lámpa
-    if(fixtureRows[3]) fixtureRows[3].querySelector('.qty').value = 1;  // komplex lámpa
-    if(fixtureRows[4]) fixtureRows[4].querySelector('.qty').value = 2;  // egyéb
+    if(fixtureRows[0]) fixtureRows[0].querySelector('.qty').value = 8;  
+    if(fixtureRows[1]) fixtureRows[1].querySelector('.qty').value = 18; 
+    if(fixtureRows[2]) fixtureRows[2].querySelector('.qty').value = 8; 
+    if(fixtureRows[3]) fixtureRows[3].querySelector('.qty').value = 1;  
+    if(fixtureRows[4]) fixtureRows[4].querySelector('.qty').value = 2;  
 
-    // árlista: tábla csere + FI relé 1f
+    
     const priceRows = document.querySelectorAll('#priceListBody tr');
-    if(priceRows[0]) priceRows[0].querySelector('.qty').value = 1; // tábla csere
-    if(priceRows[2]) priceRows[2].querySelector('.qty').value = 1; // FI relé 1 fázis
+    if(priceRows[0]) priceRows[0].querySelector('.qty').value = 1; 
+    if(priceRows[2]) priceRows[2].querySelector('.qty').value = 1; 
 
     document.getElementById('jobDescription').value = '50 nm² lakás villamos hálózat felújítás, alapszerelés + szerelvényezés.';
     document.getElementById('reportedIssue').value = 'Teljes vagy részleges hálózatkorszerűsítés.';
@@ -2070,7 +2114,7 @@
     if (data.customSections) {
       Object.entries(data.customSections).forEach(([id, rows]) => setTableData(id, rows));
     } else if (data.custom) {
-      // Régi mentésből származó összevont tételek megőrzése.
+    
       setTableData('customBody6', data.custom);
     }
 
@@ -2086,7 +2130,7 @@
     }
   }
 
-  // indulás
+  
   document.getElementById('quoteDate').value = new Date().toISOString().split('T')[0];
   document.getElementById('quoteNo').value = generateQuoteNo();
   document.getElementById('workNo').value = generateWorkNo();
@@ -2094,6 +2138,157 @@
 
   toggleMode();
   recalcAll();
+
+  function printDocument(){
+    recalcAll();
+
+    const original = document.querySelector('body > .container');
+    const oldPrint = document.getElementById('printDocument');
+    if(oldPrint) oldPrint.remove();
+
+    const printRoot = document.createElement('div');
+    printRoot.id = 'printDocument';
+    const clone = original.cloneNode(true);
+    clone.classList.add('print-layout');
+
+    
+    const sourceFields = original.querySelectorAll('input, textarea, select');
+    const clonedFields = clone.querySelectorAll('input, textarea, select');
+    sourceFields.forEach((sourceField, index) => {
+      const targetField = clonedFields[index];
+      if(!targetField) return;
+      if(sourceField.type === 'checkbox' || sourceField.type === 'radio'){
+        targetField.checked = sourceField.checked;
+      }else if(sourceField.tagName === 'SELECT'){
+        targetField.selectedIndex = sourceField.selectedIndex;
+      }else{
+        targetField.value = sourceField.value;
+      }
+    });
+
+    
+    const firstCard = clone.querySelector('.card');
+    if(firstCard) firstCard.remove();
+    clone.querySelectorAll('.btn-row, .no-print, button').forEach(el => el.remove());
+
+    
+    clone.querySelectorAll('tbody tr').forEach(row => {
+      const qty = row.querySelector('.qty');
+      const quantity = qty ? (parseFloat(qty.value) || 0) : null;
+      if(quantity !== null && quantity <= 0){
+        row.remove();
+      }
+    });
+
+    
+    clone.querySelectorAll('.table-wrap').forEach(wrap => {
+      const tbody = wrap.querySelector('tbody');
+      if(tbody && tbody.children.length === 0) wrap.remove();
+    });
+
+    
+    clone.querySelectorAll('input, textarea, select').forEach(field => {
+      let value = '';
+      if(field.tagName === 'SELECT'){
+        value = field.selectedOptions?.[0]?.textContent?.trim() || '';
+      }else if(field.type === 'checkbox' || field.type === 'radio'){
+        value = field.checked ? 'Igen' : 'Nem';
+      }else{
+        value = (field.value || '').trim();
+      }
+
+      const wrapper = field.closest('.field');
+      if(!value && wrapper){
+        wrapper.remove();
+        return;
+      }
+
+      const output = document.createElement('span');
+      output.className = 'print-value';
+      output.textContent = value || '—';
+      field.replaceWith(output);
+    });
+
+    
+    clone.querySelectorAll('tbody').forEach(tbody => {
+      Array.from(tbody.rows).forEach((row, index) => {
+        if(row.cells[0]) row.cells[0].textContent = String(index + 1);
+      });
+    });
+
+    
+    clone.querySelectorAll('.card').forEach(card => {
+      const hasRows = card.querySelector('tbody tr');
+      const hasFields = card.querySelector('.field');
+      const hasSummary = card.querySelector('.summary-line');
+      const hasOtherContent = Array.from(card.children).some(child =>
+        !['H2','H3'].includes(child.tagName) &&
+        (child.textContent || '').trim().length > 0
+      );
+      if(!hasRows && !hasFields && !hasSummary && !hasOtherContent){
+        card.remove();
+      }
+    });
+
+    
+    const header = document.createElement('div');
+    header.className = 'print-header';
+
+    const top = document.createElement('div');
+    top.className = 'print-header-top';
+
+    const brand = document.createElement('div');
+    const brandName = document.createElement('div');
+    brandName.className = 'print-brand';
+    brandName.textContent = document.getElementById('companyName')?.value || 'Villanyszerelés';
+    const brandSubtitle = document.createElement('div');
+    brandSubtitle.className = 'print-subtitle';
+    brandSubtitle.textContent = 'Villanyszerelési árajánlat és munkalap';
+    brand.append(brandName, brandSubtitle);
+
+    const mark = document.createElement('div');
+    mark.className = 'print-mark';
+    mark.textContent = 'PF';
+    top.append(brand, mark);
+
+    const meta = document.createElement('div');
+    meta.className = 'print-company-meta';
+    [
+      document.getElementById('companyPhone')?.value,
+      document.getElementById('companyEmail')?.value,
+      document.getElementById('companyAddress')?.value,
+      document.getElementById('companyTax')?.value ? 'Adószám: ' + document.getElementById('companyTax').value : ''
+    ].filter(Boolean).forEach(value => {
+      const item = document.createElement('span');
+      item.textContent = value;
+      meta.appendChild(item);
+    });
+
+    const title = document.createElement('div');
+    title.className = 'print-document-title';
+    title.textContent = 'ÁRAJÁNLAT ÉS MUNKALAP';
+    const subtitle = document.createElement('div');
+    subtitle.className = 'print-document-subtitle';
+    subtitle.textContent = 'A dokumentum a kitöltött ajánlati és helyszíni munkavégzési adatokat tartalmazza.';
+
+    header.append(top, meta, title, subtitle);
+    printRoot.append(header, clone);
+
+    const signatures = document.createElement('div');
+    signatures.className = 'print-signatures';
+    ['Vállalkozó aláírása','Megrendelő aláírása'].forEach(label => {
+      const line = document.createElement('div');
+      line.className = 'print-signature-line';
+      line.textContent = label;
+      signatures.appendChild(line);
+    });
+    printRoot.appendChild(signatures);
+
+    document.body.appendChild(printRoot);
+    window.addEventListener('afterprint', () => printRoot.remove(), {once:true});
+    window.print();
+  }
+
 </script>
 </body>
 </html>
