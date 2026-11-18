@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Villanyszerelés- Árajánlat- Papp Ferenc</title>
+  <title>Villanyszerelés - Árajánlat - Papp Ferenc</title>
   <style>
     :root{
       --bg:#0f0f0f;
@@ -248,45 +248,58 @@
   
     #printDocument{display:none}
     @media print{
-      @page{size:A4;margin:13mm 12mm}
-      body{background:#fff!important;color:#202124!important;font-family:Arial,sans-serif;line-height:1.35}
+      @page{size:A4;margin:12mm 13mm 14mm}
+      html,body{background:#fff!important;color:#20242a!important;font-family:Arial,Helvetica,sans-serif;line-height:1.38;-webkit-print-color-adjust:exact;print-color-adjust:exact}
       body > .container{display:none!important}
       #printDocument{display:block!important}
       #printDocument .container{max-width:none;margin:0;padding:0}
-      #printDocument .print-header{border-bottom:3px solid #f57c00;padding:0 0 12px;margin:0 0 16px}
-      #printDocument .print-header-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-      #printDocument .print-brand{font-size:19px;font-weight:700;color:#202124}
-      #printDocument .print-subtitle{font-size:11px;color:#666;margin-top:3px}
-      #printDocument .print-mark{background:#f57c00;color:#fff;font-size:18px;font-weight:700;padding:8px 11px;border-radius:5px}
-      #printDocument .print-company-meta{font-size:10px;color:#555;margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 14px}
-      #printDocument .print-document-title{font-size:21px;font-weight:700;letter-spacing:.4px;margin:14px 0 2px;color:#202124}
-      #printDocument .print-document-subtitle{font-size:10px;color:#666}
-      #printDocument .card{background:#fff!important;color:#202124!important;border:0!important;border-bottom:1px solid #ddd!important;border-radius:0!important;box-shadow:none!important;padding:10px 0!important;margin:0 0 8px!important;break-inside:auto}
-      #printDocument h1{font-size:16px;border:0;padding:0;color:#202124}
-      #printDocument h2{font-size:13px;color:#202124;border-bottom:2px solid #f57c00;padding:0 0 5px;margin:0 0 8px;break-after:avoid}
-      #printDocument h3{font-size:11px;color:#202124}
-      #printDocument .badge,#printDocument .pill{background:#f4f4f4!important;color:#444!important;border:1px solid #ddd!important}
-      #printDocument .note,#printDocument .small-note{color:#555!important}
+      #printDocument .print-header{position:relative;padding:0 0 13px;margin:0 0 15px;border-bottom:3px solid #ed7900}
+      #printDocument .print-header-top{display:flex;justify-content:space-between;align-items:center;gap:18px}
+      #printDocument .print-brand{font-size:20px;font-weight:800;letter-spacing:.15px;color:#171b20}
+      #printDocument .print-subtitle{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#707780;margin-top:4px}
+      #printDocument .print-mark{background:#ed7900;color:#fff;font-size:17px;font-weight:800;letter-spacing:1px;padding:10px 13px;border-radius:7px;min-width:46px;text-align:center}
+      #printDocument .print-company-meta{font-size:9px;color:#59616b;margin-top:10px;display:flex;flex-wrap:wrap;gap:4px 15px}
+      #printDocument .print-document-title{font-size:22px;line-height:1.15;font-weight:800;letter-spacing:.45px;margin:16px 0 4px;color:#171b20}
+      #printDocument .print-document-subtitle{font-size:9px;color:#707780}
+      #printDocument .print-document-meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:9px;font-size:9px;color:#414953}
+      #printDocument .print-document-meta span{background:#f4f5f6;border:1px solid #e5e7e9;border-radius:4px;padding:4px 7px}
+      #printDocument .card{background:#fff!important;color:#20242a!important;border:1px solid #e1e4e7!important;border-radius:7px!important;box-shadow:none!important;padding:11px 12px!important;margin:0 0 9px!important;break-inside:auto}
+      /* Az árképzési mód sötét szerkesztőpanelje nyomtatáskor világos legyen. */
+      #printDocument .mode-box{background:#f7f8f9!important;color:#20242a!important;border:1px solid #dfe3e7!important;border-radius:6px!important}
+      #printDocument .mode-box h3{color:#252b32!important}
+      #printDocument .mode-box label{color:#737b84!important}
+      #printDocument .mode-box .print-value{color:#20242a!important}
+      #printDocument h1{font-size:15px;border:0;padding:0;color:#171b20}
+      #printDocument h2{font-size:11px;line-height:1.25;font-weight:800;letter-spacing:.45px;text-transform:uppercase;color:#252b32;border:0;border-bottom:1px solid #e4e7ea;padding:0 0 7px;margin:0 0 9px;break-after:avoid}
+      #printDocument h2:before{content:"";display:inline-block;width:4px;height:11px;background:#ed7900;border-radius:2px;margin-right:7px;vertical-align:-1px}
+      #printDocument h3{font-size:10px;color:#303740;margin:0 0 6px}
+      #printDocument .badge,#printDocument .pill{background:#fff7ef!important;color:#a64e00!important;border:1px solid #f2d4b9!important;border-radius:4px!important}
+      #printDocument .note,#printDocument .small-note{color:#68717c!important}
       #printDocument .field{margin-bottom:7px;min-width:0}
-      #printDocument label{font-size:9px;color:#666!important;margin-bottom:2px}
-      #printDocument .print-value{display:block;min-height:14px;font-size:10px;color:#202124;white-space:pre-wrap;overflow-wrap:anywhere;padding:2px 0}
+      #printDocument label{font-size:8px;font-weight:700;letter-spacing:.25px;text-transform:uppercase;color:#737b84!important;margin-bottom:2px}
+      #printDocument .print-value{display:block;min-height:14px;font-size:9px;color:#20242a;white-space:pre-wrap;overflow-wrap:anywhere;padding:2px 0;font-weight:500}
       #printDocument textarea.print-value{min-height:0}
-      #printDocument .grid,#printDocument .grid-3,#printDocument .grid-4{gap:7px 12px}
-      #printDocument .summary{grid-template-columns:1fr 1fr;gap:10px}
-      #printDocument .summary-box{background:#fafafa!important;border:1px solid #ddd!important;border-radius:5px;padding:8px}
-      #printDocument .summary-line{border-bottom:1px solid #e5e5e5;padding:4px 0;font-size:10px}
-      #printDocument .summary-line:last-child{font-size:13px;color:#111}
+      #printDocument .grid,#printDocument .grid-3{gap:7px 13px}
+      #printDocument .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 13px}
+      #printDocument .summary{grid-template-columns:.9fr 1.1fr;gap:10px;align-items:start}
+      #printDocument .summary-box{background:#fafafa!important;border:1px solid #e1e4e7!important;border-radius:6px;padding:9px 10px}
+      #printDocument .summary-line{border-bottom:1px solid #e7e9eb;padding:5px 0;font-size:9px;color:#505862}
+      #printDocument .summary-line:last-child{border:0;margin:5px -3px -3px;padding:9px 7px;background:#fff2e6;border-left:3px solid #ed7900;border-radius:3px;font-size:12px;font-weight:800;color:#20242a}
+      #printDocument .summary-line:last-child strong{font-size:14px;color:#a64e00}
       #printDocument .table-wrap{overflow:visible}
-      #printDocument table{width:100%;min-width:0!important;border-collapse:collapse;table-layout:auto;font-size:9px}
-      #printDocument th,#printDocument td{border:1px solid #d5d5d5!important;color:#202124!important;padding:5px 6px;vertical-align:top}
-      #printDocument th{background:#f1f1f1!important;font-size:9px}
-      #printDocument td .print-value{font-size:9px;padding:0;min-height:0}
+      #printDocument table{width:100%;min-width:0!important;border-collapse:collapse;table-layout:auto;font-size:8.5px;margin:5px 0 2px}
+      #printDocument th,#printDocument td{border:1px solid #e0e3e6!important;color:#29313a!important;padding:5px 6px;vertical-align:top}
+      #printDocument th{background:#f1f3f5!important;font-size:8px;font-weight:800;letter-spacing:.15px;color:#424a54!important}
+      #printDocument tbody tr:nth-child(even){background:#fafbfc!important}
+      #printDocument td .print-value{font-size:8.5px;padding:0;min-height:0}
       #printDocument tr{break-inside:avoid;page-break-inside:avoid}
+      #printDocument thead{display:table-header-group}
+      #printDocument tfoot{display:table-footer-group}
       #printDocument .hidden{display:none!important}
-      #printDocument .print-signatures{display:grid;grid-template-columns:1fr 1fr;gap:35px;margin:24px 0 8px;break-inside:avoid}
-      #printDocument .print-signature-line{border-top:1px solid #555;padding-top:5px;font-size:9px;color:#555;text-align:center}
+      #printDocument .print-signatures{display:grid;grid-template-columns:1fr 1fr;gap:38px;margin:25px 0 8px;break-inside:avoid}
+      #printDocument .print-signature-line{border-top:1px solid #8a929a;padding-top:6px;font-size:8px;color:#626b75;text-align:center}
       #printDocument .no-print,#printDocument .btn-row,#printDocument button{display:none!important}
-      #printDocument .card:last-child{border-bottom:0!important}
+      #printDocument .card:last-child{border-bottom:1px solid #e1e4e7!important}
     }
 
   </style>
@@ -295,15 +308,15 @@
 <div class="container">
 
   <div class="card">
-    <div class="badge">Papp Ferenc  • Villanyszerelés</div>
-    <h1>PF Árajánlat PRO V8.3.6</h1>
+    <div class="badge"> • Papp Ferenc • Villanyszerelés •</div>
+    <h1>PF Árajánlat</h1>
     <p class="note"></p>
 
     <div class="btn-row no-print">
-      <button class="btn-primary" onclick="printDocument()">🖨️ PDF mentés/nyomtatás</button>
+      <button class="btn-primary" onclick="printDocument()">🖨️ Rendezett PDF / nyomtatás</button>
       <button class="btn-dark" onclick="fillExampleSmall()">⚡ Kis munka minta</button>
       <button class="btn-dark" onclick="fillExampleFlat()">🏠 50 nm² lakás minta</button>
-      <button class="btn-success" onclick="saveLocal()">💾 Mentés eszközre</button>
+      <button class="btn-success" onclick="saveLocal()">💾 Mentés telefonon</button>
       <button class="btn-light" onclick="loadLocal()">📂 Visszatöltés</button>
       <button class="btn-danger" onclick="clearForm()">🧹 Törlés</button>
     </div>
@@ -342,7 +355,7 @@
       </div>
       <div class="field">
         <label>Telefonszám</label>
-        <input type="text" id="companyPhone" value="06 20 454 4068">
+        <input type="text" id="companyPhone" value="+36 20 454 4068">
       </div>
       <div class="field">
         <label>E-mail</label>
@@ -1772,7 +1785,7 @@
         A feltüntetett árak tájékoztató jellegűek, pontos árajánlat a helyszíni felmérés/egyeztetést követően kerül meghatározásra.
         Az alapszerelés díja nem tartalmazza a szerelvényezés költségét.
         A végső ár az elvégzendő munka mennyisége, a beépített anyagok és a helyszíni adottságok alapján változhat.
-        Panellakás, betonfal, átvariált hálózat vagy rejtett hibák esetén a munkadíj arányai módosulhatnak.</textarea>
+        Panellakás, betonfal, átvariált hálózat vagy rejtett hibák esetén az árajánlat módosulhat.</textarea>
     </div>
   </div>
 
@@ -1826,7 +1839,7 @@
 
   <div class="card">
     <h2>20. Munkalap blokk</h2>
-    <p class="note">Helyszíni munkalapként is használhatod.</p>
+    <p class="note">Helyszíni munkalap.</p>
 
     <div class="grid-3">
       <div class="field">
@@ -1997,16 +2010,16 @@
     document.getElementById('kiallasCount').value = 4;
     document.getElementById('kiallasPrice').value = 22000;
 
-    
+    // szerelvényezés
     const fixtureRows = document.querySelectorAll('#fixturesBody tr');
-    if(fixtureRows[0]) fixtureRows[0].querySelector('.qty').value = 1; 
-    if(fixtureRows[1]) fixtureRows[1].querySelector('.qty').value = 2; 
-    if(fixtureRows[2]) fixtureRows[2].querySelector('.qty').value = 1; 
+    if(fixtureRows[0]) fixtureRows[0].querySelector('.qty').value = 1; // kapcsoló
+    if(fixtureRows[1]) fixtureRows[1].querySelector('.qty').value = 2; // konnektor
+    if(fixtureRows[2]) fixtureRows[2].querySelector('.qty').value = 1; // lámpa
 
-    
+    // árlista: hibakeresés + kiszállás
     const priceRows = document.querySelectorAll('#priceListBody tr');
-    if(priceRows[17]) priceRows[17].querySelector('.qty').value = 1; 
-    if(priceRows[19]) priceRows[19].querySelector('.qty').value = 1; 
+    if(priceRows[17]) priceRows[17].querySelector('.qty').value = 1; // hibakeresés első óra
+    if(priceRows[19]) priceRows[19].querySelector('.qty').value = 1; // kiszállás
 
     document.getElementById('jobDescription').value = 'Kisebb hibajavítás, 2 db konnektor csere, 1 db kapcsoló, 1 db lámpa bekötés.';
     document.getElementById('reportedIssue').value = 'Dugaljak hibás működése, kapcsoló csere.';
@@ -2023,18 +2036,18 @@
     document.getElementById('kiallasPerNm2').value = 1;
     document.getElementById('nm2UnitPrice').value = 13000;
 
-    
+    // szerelvényezés
     const fixtureRows = document.querySelectorAll('#fixturesBody tr');
-    if(fixtureRows[0]) fixtureRows[0].querySelector('.qty').value = 8;  
-    if(fixtureRows[1]) fixtureRows[1].querySelector('.qty').value = 18; 
-    if(fixtureRows[2]) fixtureRows[2].querySelector('.qty').value = 8; 
-    if(fixtureRows[3]) fixtureRows[3].querySelector('.qty').value = 1;  
-    if(fixtureRows[4]) fixtureRows[4].querySelector('.qty').value = 2;  
+    if(fixtureRows[0]) fixtureRows[0].querySelector('.qty').value = 8;  // kapcsoló
+    if(fixtureRows[1]) fixtureRows[1].querySelector('.qty').value = 18; // konnektor
+    if(fixtureRows[2]) fixtureRows[2].querySelector('.qty').value = 8;  // lámpa
+    if(fixtureRows[3]) fixtureRows[3].querySelector('.qty').value = 1;  // komplex lámpa
+    if(fixtureRows[4]) fixtureRows[4].querySelector('.qty').value = 2;  // egyéb
 
-    
+    // árlista: tábla csere + FI relé 1f
     const priceRows = document.querySelectorAll('#priceListBody tr');
-    if(priceRows[0]) priceRows[0].querySelector('.qty').value = 1; 
-    if(priceRows[2]) priceRows[2].querySelector('.qty').value = 1; 
+    if(priceRows[0]) priceRows[0].querySelector('.qty').value = 1; // tábla csere
+    if(priceRows[2]) priceRows[2].querySelector('.qty').value = 1; // FI relé 1 fázis
 
     document.getElementById('jobDescription').value = '50 nm² lakás villamos hálózat felújítás, alapszerelés + szerelvényezés.';
     document.getElementById('reportedIssue').value = 'Teljes vagy részleges hálózatkorszerűsítés.';
@@ -2114,7 +2127,7 @@
     if (data.customSections) {
       Object.entries(data.customSections).forEach(([id, rows]) => setTableData(id, rows));
     } else if (data.custom) {
-    
+      // Régi mentésből származó összevont tételek megőrzése.
       setTableData('customBody6', data.custom);
     }
 
@@ -2130,7 +2143,7 @@
     }
   }
 
-  
+  // indulás
   document.getElementById('quoteDate').value = new Date().toISOString().split('T')[0];
   document.getElementById('quoteNo').value = generateQuoteNo();
   document.getElementById('workNo').value = generateWorkNo();
@@ -2151,7 +2164,8 @@
     const clone = original.cloneNode(true);
     clone.classList.add('print-layout');
 
-    
+    // A klónba átmásoljuk a mezők AKTUÁLIS értékeit is
+    // (nem csak az eredeti HTML-ben tárolt alapértékeket).
     const sourceFields = original.querySelectorAll('input, textarea, select');
     const clonedFields = clone.querySelectorAll('input, textarea, select');
     sourceFields.forEach((sourceField, index) => {
@@ -2166,12 +2180,12 @@
       }
     });
 
-    
+    // A szerkesztőfelület címsora és kezelőgombjai nem kerülnek a dokumentumba.
     const firstCard = clone.querySelector('.card');
     if(firstCard) firstCard.remove();
     clone.querySelectorAll('.btn-row, .no-print, button').forEach(el => el.remove());
 
-    
+    // Üres tételeket kihagyjuk, a ténylegesen felvett sorok maradnak.
     clone.querySelectorAll('tbody tr').forEach(row => {
       const qty = row.querySelector('.qty');
       const quantity = qty ? (parseFloat(qty.value) || 0) : null;
@@ -2180,13 +2194,13 @@
       }
     });
 
-    
+    // Üres táblázatokat és üres mezőket eltávolítjuk.
     clone.querySelectorAll('.table-wrap').forEach(wrap => {
       const tbody = wrap.querySelector('tbody');
       if(tbody && tbody.children.length === 0) wrap.remove();
     });
 
-    
+    // A beviteli mezőket olvasható, nyomtatható szöveggé alakítjuk.
     clone.querySelectorAll('input, textarea, select').forEach(field => {
       let value = '';
       if(field.tagName === 'SELECT'){
@@ -2209,14 +2223,14 @@
       field.replaceWith(output);
     });
 
-    
+    // A táblázatok sorszáma a kihagyott üres sorok után is folyamatos legyen.
     clone.querySelectorAll('tbody').forEach(tbody => {
       Array.from(tbody.rows).forEach((row, index) => {
         if(row.cells[0]) row.cells[0].textContent = String(index + 1);
       });
     });
 
-    
+    // Az üres, fel nem használt szolgáltatási fejezeteket nem nyomtatjuk.
     clone.querySelectorAll('.card').forEach(card => {
       const hasRows = card.querySelector('tbody tr');
       const hasFields = card.querySelector('.field');
@@ -2230,7 +2244,7 @@
       }
     });
 
-    
+    // Fejléc a vállalkozó adataival.
     const header = document.createElement('div');
     header.className = 'print-header';
 
@@ -2243,7 +2257,7 @@
     brandName.textContent = document.getElementById('companyName')?.value || 'Villanyszerelés';
     const brandSubtitle = document.createElement('div');
     brandSubtitle.className = 'print-subtitle';
-    brandSubtitle.textContent = 'Villanyszerelési árajánlat és munkalap';
+    brandSubtitle.textContent = 'Villanyszerlés árajánlat és munkalap';
     brand.append(brandName, brandSubtitle);
 
     const mark = document.createElement('div');
@@ -2269,9 +2283,21 @@
     title.textContent = 'ÁRAJÁNLAT ÉS MUNKALAP';
     const subtitle = document.createElement('div');
     subtitle.className = 'print-document-subtitle';
-    subtitle.textContent = 'A dokumentum a kitöltött ajánlati és helyszíni munkavégzési adatokat tartalmazza.';
+    subtitle.textContent = 'Villanyszerelés szolgáltatás • Árajánlat és munkavégzési dokumentáció';
 
-    header.append(top, meta, title, subtitle);
+    const documentMeta = document.createElement('div');
+    documentMeta.className = 'print-document-meta';
+    [
+      document.getElementById('quoteNo')?.value ? 'Ajánlatszám: ' + document.getElementById('quoteNo').value : '',
+      document.getElementById('quoteDate')?.value ? 'Keltezés: ' + document.getElementById('quoteDate').value : '',
+      document.getElementById('validity')?.value ? 'Érvényesség: ' + document.getElementById('validity').value : ''
+    ].filter(Boolean).forEach(value => {
+      const item = document.createElement('span');
+      item.textContent = value;
+      documentMeta.appendChild(item);
+    });
+
+    header.append(top, meta, title, subtitle, documentMeta);
     printRoot.append(header, clone);
 
     const signatures = document.createElement('div');
