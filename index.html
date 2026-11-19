@@ -264,7 +264,7 @@
       #printDocument .print-document-meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:9px;font-size:9px;color:#414953}
       #printDocument .print-document-meta span{background:#f4f5f6;border:1px solid #e5e7e9;border-radius:4px;padding:4px 7px}
       #printDocument .card{background:#fff!important;color:#20242a!important;border:1px solid #e1e4e7!important;border-radius:7px!important;box-shadow:none!important;padding:11px 12px!important;margin:0 0 9px!important;break-inside:auto}
-      /* Az árképzési mód sötét szerkesztőpanelje nyomtatáskor világos legyen. */
+      
       #printDocument .mode-box{background:#f7f8f9!important;color:#20242a!important;border:1px solid #dfe3e7!important;border-radius:6px!important}
       #printDocument .mode-box h3{color:#252b32!important}
       #printDocument .mode-box label{color:#737b84!important}
@@ -300,6 +300,55 @@
       #printDocument .print-signature-line{border-top:1px solid #8a929a;padding-top:6px;font-size:8px;color:#626b75;text-align:center}
       #printDocument .no-print,#printDocument .btn-row,#printDocument button{display:none!important}
       #printDocument .card:last-child{border-bottom:1px solid #e1e4e7!important}
+    }
+
+  
+    
+    .table-toggle{
+      margin:10px 0 4px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+      background:var(--card2);
+    }
+    .table-toggle > summary{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:11px 13px;
+      color:var(--text);
+      font-weight:700;
+      font-size:.9rem;
+      cursor:pointer;
+      user-select:none;
+      list-style:none;
+    }
+    .table-toggle > summary::-webkit-details-marker{display:none}
+    .table-toggle > summary::after{
+      content:"+";
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 25px;
+      width:25px;
+      height:25px;
+      border-radius:7px;
+      background:var(--accent);
+      color:#fff;
+      font-size:19px;
+      line-height:1;
+    }
+    .table-toggle[open] > summary::after{content:"−"}
+    .table-toggle > .table-wrap{padding:0 10px 10px}
+    .table-toggle > summary:focus-visible{
+      outline:2px solid var(--accent2);
+      outline-offset:-3px;
+    }
+    @media print{
+      #printDocument details.table-toggle{display:block!important}
+      #printDocument details.table-toggle > summary{display:none!important}
+      #printDocument details.table-toggle > .table-wrap{display:block!important}
     }
 
   </style>
@@ -379,8 +428,16 @@
     <div class="pill">Ügyfél</div>
     <div class="grid-3">
       <div class="field">
-        <label>Megrendelő neve</label>
-        <input type="text" id="clientName" placeholder="Ügyfél neve">
+        <label>Kapcsolattartó neve</label>
+        <input type="text" id="clientName" placeholder="Kapcsolattartó neve">
+      </div>
+      <div class="field">
+        <label>Telefonszám</label>
+        <input type="text" id="clientPhone" placeholder="+36...">
+      </div>
+      <div class="field">
+        <label>E-mail</label>
+        <input type="email" id="clientEmail" placeholder="ugyfel@email.hu">
       </div>
       <div class="field">
         <label>Cégnév</label>
@@ -393,18 +450,6 @@
       <div class="field">
         <label>Cím</label>
         <input type="text" id="clientAddress" placeholder="Ügyfél címe">
-      </div>
-      <div class="field">
-        <label>Kapcsolattartó</label>
-        <input type="text" id="clientContact" placeholder="Kapcsolattartó neve">
-      </div>
-      <div class="field">
-        <label>Telefonszám</label>
-        <input type="text" id="clientPhone" placeholder="+36...">
-      </div>
-      <div class="field">
-        <label>E-mail</label>
-        <input type="email" id="clientEmail" placeholder="ugyfel@email.hu">
       </div>
     </div>
 
@@ -486,7 +531,9 @@
       <button class="btn-primary" onclick="addRowToTable('fixturesBody', 'Új tétel', 0, 'db', 0)">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése/elrejtése</summary>
+      <div class="table-wrap">
       <table id="fixturesTable">
         <thead>
           <tr>
@@ -526,6 +573,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes18"></textarea>
@@ -540,7 +588,9 @@
       <button class="btn-primary" onclick="addPriceListRow()">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése/elrejtése</summary>
+      <div class="table-wrap">
       <table id="priceListTable">
         <thead>
           <tr>
@@ -604,6 +654,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes17"></textarea>
@@ -618,7 +669,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody6')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése/elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable17">
         <thead>
           <tr>
@@ -658,6 +711,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes16"></textarea>
@@ -672,7 +726,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody7')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése/elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable16">
         <thead>
           <tr>
@@ -752,6 +808,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes15"></textarea>
@@ -766,7 +823,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody8')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése/elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable15">
         <thead>
           <tr>
@@ -918,6 +977,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes14"></textarea>
@@ -932,7 +992,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody9')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése/elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable14">
         <thead>
           <tr>
@@ -1004,6 +1066,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     </div>
 
     <div class="field" style="margin-top:12px;">
@@ -1019,7 +1082,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody10')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése/elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable13">
         <thead>
           <tr>
@@ -1139,6 +1204,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes12"></textarea>
@@ -1153,7 +1219,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody11')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése/ elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable12">
         <thead>
           <tr>
@@ -1273,6 +1341,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes11"></textarea>
@@ -1287,7 +1356,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody12')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése / elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable11">
         <thead>
           <tr>
@@ -1359,6 +1430,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes10"></textarea>
@@ -1373,7 +1445,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody13')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése / elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable10">
         <thead>
           <tr>
@@ -1437,6 +1511,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes9"></textarea>
@@ -1451,7 +1526,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody14')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése / elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable9">
         <thead>
           <tr>
@@ -1491,6 +1568,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes8"></textarea>
@@ -1505,7 +1583,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody15')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése / elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable8">
         <thead>
           <tr>
@@ -1529,6 +1609,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes7"></textarea>
@@ -1543,7 +1624,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody16')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése / elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable7">
         <thead>
           <tr>
@@ -1647,6 +1730,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes6"></textarea>
@@ -1661,7 +1745,9 @@
       <button class="btn-primary" onclick="addCustomRow('customBody17')">➕ Új tétel</button>
     </div>
 
-    <div class="table-wrap">
+    <details class="table-toggle" open>
+      <summary>Tételek megjelenítése / elrejtése</summary>
+      <div class="table-wrap">
       <table id="customTable6">
         <thead>
           <tr>
@@ -1765,6 +1851,7 @@
         </tbody>
       </table>
     </div>
+    </details>
     <div class="field" style="margin-top:12px;">
       <label>Megjegyzések</label>
       <textarea id="notes5"></textarea>
@@ -1780,7 +1867,7 @@
     </div>
 
     <div class="field" style="margin-top:12px;">
-      <label>Megjegyzések / ajánlati feltételek</label>
+      <label>Megjegyzések / feltételek</label>
       <textarea id="notes4"> A számla végösszege 0%-os áfát tartalmaz. 
         A feltüntetett árak tájékoztató jellegűek, pontos árajánlat a helyszíni felmérés/egyeztetést követően kerül meghatározásra.
         Az alapszerelés díja nem tartalmazza a szerelvényezés költségét.
@@ -2163,6 +2250,12 @@
     printRoot.id = 'printDocument';
     const clone = original.cloneNode(true);
     clone.classList.add('print-layout');
+
+    // PDF/nyomtatás előtt a klónban minden táblázatot kinyitunk.
+    // Az eredeti szerkesztőfelület nyitott/zárt állapotát ez nem módosítja.
+    clone.querySelectorAll('details.table-toggle').forEach(section => {
+      section.open = true;
+    });
 
     // A klónba átmásoljuk a mezők AKTUÁLIS értékeit is
     // (nem csak az eredeti HTML-ben tárolt alapértékeket).
